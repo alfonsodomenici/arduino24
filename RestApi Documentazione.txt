@@ -1,0 +1,12 @@
+--Gestione resorse Arduino
+
+/api/arduinos           POST    registrare un nuovo arduino
+/api/arduinos           GET     elenco arduino registrati
+/api/arduinos/<id>      UPDATE  aggiorna i dati di un determinato arduino
+/api/arduinos/<id>      DELETE  elimina un determinato arduino
+/api/arduinos/<id>/dati GET     elenco dati registrati per un determinato arduino
+/api/arduinos/<id>/dati POST    registra nuovo dato per un determinato arduino
+
+--Gestione Autenticazione
+/api/auths              POST    autenticazione di arduino tramite macaddress
+       IN => {"macaddress":"...."} OUT =>  {'access_token': token}

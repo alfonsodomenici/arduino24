@@ -1,0 +1,3 @@
+FLASK_APP=arduino24.py
+FLASK_DEBUG=True
+FLASK_CONFIG=development
