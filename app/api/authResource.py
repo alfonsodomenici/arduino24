@@ -8,7 +8,7 @@ auths = Blueprint('auths',__name__, url_prefix='/auths')
 
 @auths.post("/")
 def login():
-    macaddress = request.json.values()
+    macaddress = request.json['macaddress']
     found = findArduinoByMacaddress(macaddress)
     if found is None:
         return Response(response="login failed", status=HTTPStatus.FORBIDDEN, content_type='text/plain')

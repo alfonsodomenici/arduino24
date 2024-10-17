@@ -14,7 +14,7 @@ def all():
     
 @arduinos.post("/")
 def registration():
-    nome,macaddress = request.json.values()
+    nome,macaddress = request.json['nome'], request.json['macaddress']
     result = createArduino(nome,macaddress)
     return Response(response=json.dumps(result), status=HTTPStatus.CREATED, content_type='application/json')
 
@@ -45,6 +45,6 @@ def createDati(id):
     if id != sub:
         return Response(response="access is not allowed", status=HTTPStatus.FORBIDDEN, content_type='text/plain')
     
-    tipo,valore = request.json.values()
+    tipo,valore = request.json['tipo'],request.json['valore'] 
     result = createArduinoDati(id,tipo,valore)
     return Response(response=json.dumps(result), status=HTTPStatus.CREATED, content_type='application/json')
