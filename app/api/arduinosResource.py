@@ -45,6 +45,6 @@ def createDati(id):
     if id != sub:
         return Response(response="access is not allowed", status=HTTPStatus.FORBIDDEN, content_type='text/plain')
     
-    tipo,valore = request.json['tipo'],request.json['valore'] 
-    result = createArduinoDati(id,tipo,valore)
+    tipo,valore,valoretx = request.json['tipo'],request.json['valore'],request.json['valoretx'] 
+    result = createArduinoDati(id,tipo,valore,valoretx)
     return Response(response=json.dumps(result), status=HTTPStatus.CREATED, content_type='application/json')

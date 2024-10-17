@@ -46,11 +46,11 @@ def findArduinoDati(id):
     cursor.execute(q)
     return  cursor.fetchall()
 
-def createArduinoDati(arduino_id,tipo,valore):
+def createArduinoDati(arduino_id,tipo,valore,valoretx):
     now = datetime.now().isoformat()
     q = f"""
-        insert into dati (arduino_id,tipo,valore,data_ora) 
-        values ({arduino_id},'{tipo}',{valore},'{now}')
+        insert into dati (arduino_id,tipo,valore,data_ora,valoretx) 
+        values ({arduino_id},'{tipo}',{valore},'{now}','{valoretx}')
         """
     conn = db.connection
     cursor = conn.cursor()
