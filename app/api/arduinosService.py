@@ -28,7 +28,6 @@ def findArduino(id):
     return cursor.fetchone()
 
 def findArduinoByMacaddress(macaddress):
-    print(macaddress)
     cursor = db.connection.cursor()
     q = f"""select * 
         from arduino 
@@ -36,6 +35,21 @@ def findArduinoByMacaddress(macaddress):
         """
     cursor.execute(q)
     return cursor.fetchone()    
+
+def deleteArduino(id):
+    cursor = db.connection.cursor()
+    q=f"""delete 
+        from dati 
+        where arduino_id={id}
+        """
+    cursor.execute(q)
+    
+    q = f"""delete 
+        from arduino 
+        where id={id}
+        """
+    cursor.execute(q)
+    db.connection.commit()
 
 def findArduinoDati(id):
     cursor = db.connection.cursor()
